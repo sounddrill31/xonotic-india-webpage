@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xonotic India - Arena FPS Server</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        
+        * {
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .noise-bg {
+            position: relative;
+        }
+        
+        .noise-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .border-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, black 1px, transparent 1px),
+                              linear-gradient(to bottom, black 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-white text-black min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full px-4 py-3 flex justify-between items-center z-50 bg-white border-b border-black">
+        <div class="text-xl font-bold tracking-normal">XONOTIC INDIA</div>
+        <div class="font-mono text-sm border border-black px-3 py-1 flex items-center gap-2">
+            <span id="serverIP">155.248.242.127:26000</span>
+            <button onclick="copyServerIP()" class="text-xs uppercase tracking-widest px-2 py-1 bg-black text-white hover:bg-white hover:text-black border border-black transition-all duration-300">
+                Copy
+            </button>
+        </div>
+        <script>
+            function copyServerIP() {
+                const serverIP = document.getElementById('serverIP').textContent;
+                navigator.clipboard.writeText(serverIP).then(function() {
+                    const button = event.target;
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                });
+            }
+        </script>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="h-screen flex flex-col justify-center items-center pt-16 relative overflow-hidden">
+        <div class="border-grid absolute inset-0 opacity-10"></div>
+        <div class="z-10 px-8 max-w-4xl text-center">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-none tracking-tighter">
+                ARENA<span class="text-xs align-super tracking-normal">FPS</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                India's Xonotic server. Currently quiet, working on revival.
+            </p>
+            
+            <div class="border-2 border-black p-6 max-w-lg mx-auto" role="alert">
+                <div class="text-sm uppercase tracking-widest mb-2">STATUS</div>
+                <div class="text-lg">Server running, community small (&lt;5 active players)</div>
+                <div class="text-sm mt-2">Revival mission: September/October 2025</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What We're Building -->
+    <section class="py-24 px-8 bg-black text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">
+                WHAT<span class="text-xs align-super">WE'RE BUILDING</span>
+            </h2>
+            
+            <div class="text-lg space-y-6">
+                <p>
+                    We're trying to rebuild what we had: a decent Xonotic server hosted in India with low ping for Indian players. Nothing fancy, just a place where you can frag without lag.
+                </p>
+                
+                <p>
+                    The server's been running since 2023, survived admin burnout and technical issues. Maps might be outdated, some stuff's probably broken, but it's still there. We're working on fixing things up.
+                </p>
+                
+                <p>
+                    The goal is simple: get enough people playing so matches actually happen. Bridge chat to Discord/Telegram/IRC so the community can coordinate. Maybe run some tournaments if enough people show up.
+                </p>
+                
+                <p>
+                    It's not about building the next big thing. It's about having a server that works, in India, for people who want to play arena FPS without dealing with 200ms ping.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Play -->
+    <section class="py-24 px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">
+                HOW<span class="text-xs align-super">TO PLAY</span>
+            </h2>
+            
+            <div class="border-2 border-black p-8 mb-12 noise-bg relative">
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-4">QUICK START</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-lg">
+                        <li>Download Xonotic for your OS</li>
+                        <li>Install and run the game</li>
+                        <li>Go to Multiplayer → Server Browser</li>
+                        <li>Add server: <code class="bg-gray-100 px-2 py-1">155.248.242.127:26000</code></li>
+                        <li>Or look for <code class="bg-gray-100 px-2 py-1 font-mono">Unofficial Xonotic India Mumbai Server</code></li>
+                        <li>Join and start playing</li>
+                        <li>Connect with community via links below</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border-2 border-black p-6 text-center">
+                    <div class="text-6xl mb-4">🪟</div>
+                    <h3 class="text-2xl font-bold mb-4">WINDOWS</h3>
+                    <p class="mb-4">Windows 10/11 compatible</p>
+                    <img src="assets/screenshots/windows-download.png" alt="Windows download" class="w-full h-32 object-cover border border-black mb-4">
+                    <a href="https://xonotic.org/download/" class="bg-black text-white px-6 py-2 text-sm uppercase tracking-widest inline-block transition-all duration-300 hover:bg-white hover:text-black border-2 border-black" target="_blank" rel="noopener">
+                        See Official Downloads
+                    </a>
+                </div>
+                
+                <div class="border-2 border-black p-6 text-center">
+                    <div class="text-6xl mb-4">🐧</div>
+                    <h3 class="text-2xl font-bold mb-4">LINUX</h3>
+                    <p class="mb-4">All major distributions</p>
+                    <img src="assets/screenshots/linux-download.png" alt="Linux download" class="w-full h-32 object-cover border border-black mb-4">
+                    <div class="space-y-2">
+                        <a href="https://xonotic.org/download/" class="block bg-black text-white px-6 py-2 text-sm uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black border-2 border-black" target="_blank" rel="noopener">
+                            See Official Downloads
+                        </a>
+                        <a href="https://flathub.org/en/apps/org.xonotic.Xonotic" class="block bg-white text-black px-6 py-2 text-sm uppercase tracking-widest transition-all duration-300 hover:bg-black hover:text-white border-2 border-black" target="_blank" rel="noopener">
+                            Get on Flathub
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border-2 border-black p-6 text-center">
+                    <div class="text-6xl mb-4">🍎</div>
+                    <h3 class="text-2xl font-bold mb-4">MACOS</h3>
+                    <p class="mb-4">Intel & Apple Silicon</p>
+                    <img src="assets/screenshots/mac-download.png" alt="macOS download" class="w-full h-32 object-cover border border-black mb-4">
+                    <a href="https://xonotic.org/download/" class="bg-black text-white px-6 py-2 text-sm uppercase tracking-widest inline-block hover:bg-gray-800 transition-colors" target="_blank" rel="noopener">
+                        See Official Downloads
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-24 px-8 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">
+                TIME<span class="text-xs align-super">LINE</span>
+            </h2>
+            
+            <div class="space-y-8">
+                <div class="border-l-4 border-black pl-8">
+                    <div class="text-xl font-bold mb-2">2021-2022</div>
+                    <p class="text-lg">Wanted a Xonotic server in India. Tired of high ping on international servers.</p>
+                </div>
+                
+                <div class="border-l-4 border-black pl-8">
+                    <div class="text-xl font-bold mb-2">2022</div>
+                    <p class="text-lg">Got OCI Free Tier access. Finally had infrastructure to run a server.</p>
+                </div>
+                
+                <div class="border-l-4 border-black pl-8">
+                    <div class="text-xl font-bold mb-2">17-29 Feb 2023</div>
+                    <p class="text-lg">Initial server setup with chat bridge. Server went live.</p>
+                </div>
+                
+                <div class="border-l-4 border-black pl-8">
+                    <div class="text-xl font-bold mb-2">Mid 2023</div>
+                    <p class="text-lg">Admin got a life and stopped playing actively. Community slowed down.</p>
+                </div>
+                
+                <div class="border-l-4 border-black pl-8">
+                    <div class="text-xl font-bold mb-2">Mid 2024</div>
+                    <p class="text-lg">Most systems broke, maps outdated, but server kept running somehow.</p>
+                </div>
+                
+                <div class="border-l-4 border-black pl-8 border-l-8">
+                    <div class="text-xl font-bold mb-2">Sep/Oct 2025</div>
+                    <p class="text-lg"><strong>Revival attempt in progress.</strong> Fixing broken things, updating maps, trying to get people back.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Stats -->
+    <section class="py-24 px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">
+                SERVER<span class="text-xs align-super">STATS</span>
+            </h2>
+            
+            <div class="border-2 border-black">
+                <iframe 
+                    src="https://dpmaster.deathmask.net/?game=xonotic&server=155.248.242.127:26000" 
+                    class="w-full h-96"
+                    title="Xonotic India Server Statistics"
+                    aria-label="Live server statistics">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="py-24 px-8 bg-black text-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">
+                COMM<span class="text-xs align-super">UNITY</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border-2 border-white p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">DISCORD</h3>
+                    <p class="mb-6">Main community hub for voice chat and coordination</p>
+                    <a href="https://discord.gg/Ws5NEF9sFw" 
+                       class="bg-white text-black px-6 py-2 text-sm uppercase tracking-widest inline-block transition-all duration-300 hover:bg-black hover:text-white border-2 border-white" 
+                       target="_blank" rel="noopener">
+                        Join Server
+                    </a>
+                </div>
+                
+                <div class="border-2 border-white p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">TELEGRAM</h3>
+                    <p class="mb-6">Mobile-friendly chat channels</p>
+                    <div class="space-y-2">
+                        <a href="https://t.me/Xonotic_India_Chat" 
+                           class="block bg-white text-black px-4 py-2 text-xs uppercase tracking-widest transition-all duration-300 hover:bg-black hover:text-white border-2 border-white" 
+                           target="_blank" rel="noopener">
+                            Normal Chat
+                        </a>
+                        <a href="https://t.me/Xonin1" 
+                           class="block bg-white text-black px-4 py-2 text-xs uppercase tracking-widest transition-all duration-300 hover:bg-black hover:text-white border-2 border-white" 
+                           target="_blank" rel="noopener">
+                            Game Bridge
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border-2 border-white p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">IRC</h3>
+                    <p class="mb-6">Old school chat: #xonin1 on QuakeNet</p>
+                    <a href="https://webchat.quakenet.org/?channels=xonin1" 
+                       class="bg-white text-black px-6 py-2 text-sm uppercase tracking-widest inline-block transition-all duration-300 hover:bg-black hover:text-white border-2 border-white" 
+                       target="_blank" rel="noopener">
+                        Web Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-8 border-t border-gray-400">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-sm">
+                Xonotic India Community - 2025 | 
+                <a href="https://mono.layogtima.com/" target="_blank" rel="noopener" class="underline">Built With Mono Design in Mind</a>
+            </div>
+            <div class="text-xs text-gray-600">
+                Xonotic is free and open-source. Visit 
+                <a href="https://xonotic.org" target="_blank" rel="noopener" class="underline">xonotic.org</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
