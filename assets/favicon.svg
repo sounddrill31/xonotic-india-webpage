@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg {
+      fill: black;
+    }
+    .fg {
+      fill: white;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+  </style>
+  <circle cx="50" cy="50" r="50" class="bg"/>
+  <text x="15" y="45" class="fg" style="font-size: 30px; text-anchor: start;">Xon</text>
+  <text x="85" y="75" class="fg" style="font-size: 25px; text-anchor: end;">IN1</text>
+</svg>

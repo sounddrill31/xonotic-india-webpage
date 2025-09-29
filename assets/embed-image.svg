@@ -1,0 +1,39 @@
+<svg width="800" height="420" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(30,30,30);stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="420" fill="#000" />
+  <rect width="800" height="420" fill="url(#grid)" />
+
+  <g transform="translate(400, 210)" style="font-family: 'Space Mono', monospace; text-anchor: middle;">
+    <text y="-20" style="font-size: 80px; fill: #fff; font-weight: 700; letter-spacing: -3px; filter: url(#glow); opacity: 0.9;">
+      XONOTIC
+    </text>
+    <text y="40" style="font-size: 50px; fill: #ccc; font-weight: 400; letter-spacing: 8px; text-transform: uppercase;">
+      INDIA
+    </text>
+  </g>
+
+  <g transform="translate(400, 210)">
+    <circle cx="0" cy="0" r="150" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" stroke-dasharray="5 5" opacity="0.5">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="80s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
